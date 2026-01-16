@@ -44,8 +44,8 @@ jobs:
     - name: Configure SSH Key
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/WinAccessKey.pem
-        chmod 600 ~/.ssh/WinAccessKey.pem
+        echo "${{ secrets.EC2_SSH_KEY }}" > /home/runner/.ssh/WinAccessKey.pem
+        chmod 600 /home/runner/.ssh/WinAccessKey.pem
         ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/known_hosts
 
     # 6. Run Ansible Playbook to deploy WAR
