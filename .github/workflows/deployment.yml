@@ -32,7 +32,6 @@ jobs:
 
     # 3. Build WAR using Maven
     - name: Build WAR
-      working-directory: simple-java-docker
       run: mvn clean package
 
     # 4. Install Ansible
