@@ -34,6 +34,15 @@ jobs:
     - name: Build WAR
       run: mvn clean package
 
+    - name: Verify WAR output
+      run: |
+          pwd
+          ls -lh target
+
+    - name: Capture WAR file
+      run: |
+          echo "WAR_FILE=$(ls target/*.war)" >> $GITHUB_ENV
+
     # 4. Install Ansible
     - name: Install Ansible
       run: |
@@ -51,4 +60,4 @@ jobs:
     # 6. Run Ansible Playbook to deploy WAR
     - name: Deploy WAR to Tomcat
       run: |
-        ansible-playbook -i $INVENTORY_FILE $PLAYBOOK_FILE --extra-vars "war_file=$(pwd)/target/simple-java-docker-1.0.0.war tomcat_user=$TOMCAT_USER tomcat_host=$TOMCAT_HOST"
+        ansible-playbook -i $INVENTORY_FILE $PLAYBOOK_FILE -e "war_file=${WAR_FILE}"
