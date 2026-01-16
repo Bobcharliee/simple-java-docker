@@ -5,3 +5,4 @@
 terraform.tfvars
 .crash.log
 *.pem
+.terraform.lock.hcl
