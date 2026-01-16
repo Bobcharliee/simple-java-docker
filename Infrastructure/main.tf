@@ -57,7 +57,7 @@ resource "aws_instance" "tomcat_ec2" {
 resource "local_file" "ansible_inventory" {
   content = <<EOT
   [tomcat]
-  ${aws_instance.tomcat_ec2.public_ip} ansible_user=ec2-user ansible_ssh_private_key_file=/home/runner/.ssh/WinAccessKey.pem
+  ${aws_instance.tomcat_ec2.public_ip} ansible_user=ec2-user ansible_ssh_private_key_file=~/WinAccessKey.pem
   EOT
 
   filename = "${path.module}/inventory.ini"
