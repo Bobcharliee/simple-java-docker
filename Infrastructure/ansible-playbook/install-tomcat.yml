@@ -56,7 +56,7 @@
 
 
 #  ExecStart={{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/bin/startup.sh
-        #  ExecStop={{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/bin/shutdown.sh
+        # ExecStop={{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/bin/shutdown.sh
     - name: Ensure Tomcat runs as a service
       copy:
         dest: /etc/systemd/system/tomcat.service
