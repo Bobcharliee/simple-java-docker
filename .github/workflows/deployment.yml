@@ -43,6 +43,10 @@ jobs:
       run: |
           echo "WAR_FILE=$(ls target/*.war)" >> $GITHUB_ENV
 
+    - name: Show WAR path
+      run: |
+          ls -lh $WAR_FILE
+
     # 4. Install Ansible
     - name: Install Ansible
       run: |
