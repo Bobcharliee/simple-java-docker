@@ -64,4 +64,4 @@ jobs:
     # 6. Run Ansible Playbook to deploy WAR
     - name: Deploy WAR to Tomcat
       run: |
-        ansible-playbook -i $INVENTORY_FILE $PLAYBOOK_FILE --extra-vars "war_file=${ WAR_FILE }"
+        ansible-playbook -i $INVENTORY_FILE $PLAYBOOK_FILE -e "war_file=${WAR_FILE}"
