@@ -5,13 +5,13 @@
   vars:
     tomcat_version: 9.0.113
     tomcat_install_dir: /opt/tomcat
-    war_file: target/myapp.war   # Adjust to your WAR file name
+    war_file: target/java-webapp.war   # Adjust to your WAR file name
 
   tasks:
     - name: Copy WAR file to Tomcat webapps
       copy:
         src: "{{ war_file }}"
-        dest: "{{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/webapps/myapp.war"
+        dest: "{{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/java-webapps/myapp.war"
         owner: tomcat
         group: tomcat
         mode: '0644'
