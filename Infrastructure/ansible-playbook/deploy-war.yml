@@ -11,7 +11,7 @@
     - name: Copy WAR file to Tomcat webapps
       copy:
         src: "{{ war_file }}"
-        dest: "{{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/java-webapps/myapp.war"
+        dest: "{{ tomcat_install_dir }}/apache-tomcat-{{ tomcat_version }}/webapps/java-webapp.war"
         owner: tomcat
         group: tomcat
         mode: '0644'

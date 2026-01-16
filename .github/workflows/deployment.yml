@@ -51,4 +51,4 @@ jobs:
     # 6. Run Ansible Playbook to deploy WAR
     - name: Deploy WAR to Tomcat
       run: |
-        ansible-playbook -i $INVENTORY_FILE $PLAYBOOK_FILE --extra-vars "tomcat_user=$TOMCAT_USER tomcat_host=$TOMCAT_HOST"
+        ansible-playbook -i $INVENTORY_FILE $PLAYBOOK_FILE --extra-vars "war_file=$(pwd)/target/simple-java-docker-1.0.0.war tomcat_user=$TOMCAT_USER tomcat_host=$TOMCAT_HOST"
